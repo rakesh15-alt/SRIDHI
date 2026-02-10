@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Dream Portfolio</title>
+    <style>
+        :root {
+            --bg-dark: #050103;
+            --card-bg: rgba(26, 2, 14, 0.85); /* Semi-transparent for glass effect */
+            --neon-pink: #ff007f;
+            --soft-pink: #ffadd6;
+            --glow-shadow: 0 0 15px rgba(255, 0, 127, 0.5);
+            --hover-glow: 0 0 30px rgba(255, 0, 127, 0.9);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* 1. ANIMATED BACKGROUND */
+        body {
+            background-color: var(--bg-dark);
+            color: white;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* The glowing background shapes */
+        .bg-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 30%, #30011a 0%, transparent 40%),
+                        radial-gradient(circle at 80% 70%, #200115 0%, transparent 40%);
+            animation: pulseBg 8s infinite alternate ease-in-out;
+        }
+
+        @keyframes pulseBg {
+            0% { opacity: 0.6; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.1); }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        /* 2. PROFILE SECTION */
+        .profile-ring {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 3px solid var(--neon-pink);
+            box-shadow: var(--glow-shadow);
+            overflow: hidden;
+            background: #111;
+            transition: 0.4s ease;
+        }
+
+        .profile-ring:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: var(--hover-glow);
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            letter-spacing: 3px;
+            margin-bottom: 40px;
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        h1 span {
+            color: var(--neon-pink);
+        }
+
+        /* 3. CARDS WITH GLASSMORPHISM */
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px); /* Blurs the background animation slightly */
+            border: 1px solid rgba(255, 0, 127, 0.3);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        /* Glowing Hover Effect */
+        .card:hover {
+            border-color: var(--neon-pink);
+            box-shadow: var(--hover-glow);
+            transform: translateY(-8px);
+            background: rgba(40, 4, 22, 0.9);
+        }
+
+        .card h2 {
+            color: var(--neon-pink);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .card p, .card li {
+            color: var(--soft-pink);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        ul { list-style: none; }
+        li { margin-bottom: 8px; }
+        li::before { content: "💗 "; font-size: 0.8rem; }
+
+        /* 4. CONTACT & BUTTON */
+        .contact-item {
+            display: block;
+            margin-bottom: 12px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.2s;
+        }
+
+        .contact-item:hover { color: var(--neon-pink); }
+
+      
+        
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+
+    <div class="container">
+        <div class="profile-ring">
+            <img src="images/gymgirl2.jpeg" alt="Me" style="width:100%;">
+        </div>
+
+        <h1>THE<span>MANAGER</span></h1>
+
+        <div class="card">
+            <h2>About Me</h2>
+            <p>I’m Sriddhi.A passionate front-end web developer specializing in modern, responsive, and high-performance websites. I focus on clean design, smooth user experience, and business-oriented solutions that help brands build a strong digital presence and attract more customers online..</p>
+        </div>
+
+        <div class="card">
+  <h2>Our Projects</h2>
+  <p>A showcase of innovative designs, powerful interfaces, and real business solutions.</p>
+  <a href="projects.html">Explore Our Work →</a>
+</div>
+
+        <div class="card">
+            <h2>What we Offer</h2>
+            <ul>
+                <li>Custom Web Design</li>
+                <li>Neon Branding</li>
+                <li>Landing Pages</li>
+                <li>Aur bahut kuch.....</li>
+            </ul>
+        </div>
+
+       <div class="card connect-card">
+  <h2>Let's Connect</h2>
+
+  <a href="https://devrakesh.in" class="contact-item">💻 Developer Portfolio</a>
+  <a href="@gmail.com" class="contact-item">💌 yourname@gmail.com</a>
+  
+</div>
+    </div>
+
+</body>
+</html>
